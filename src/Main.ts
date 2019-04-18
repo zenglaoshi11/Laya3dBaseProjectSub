@@ -55,7 +55,7 @@ class Main {
 				}
 			}
 		});
-		
+		FriendData.instance.getFriends();
 		let self = this;
 		Laya.Browser.window.wx.onMessage(function (message) {
 			if(message.url == "res/atlas/rank.atlas"){

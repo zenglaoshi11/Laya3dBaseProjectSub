@@ -9,9 +9,6 @@ export class Rank extends ui.FriendRankUI {
 
     constructor() { 
         super(); 
-        this.init();
-    }
-    init(): void {
         this.rankList.array = [];
         this.rankList.itemRender = RankItem;
         this.rankList.renderHandler = new Laya.Handler(this, this.onRender);
@@ -20,6 +17,7 @@ export class Rank extends ui.FriendRankUI {
         this.selfRank.visible = false;
         this._type = SORTTYPE.ENDLESS;
     }
+
     public openView(_type:number): void {
         this._type = _type;
         let self = this;
@@ -28,9 +26,7 @@ export class Rank extends ui.FriendRankUI {
             headImage:UserData.avatarUrl,
         }
         FriendData.instance.getFriends(_type,(data)=>{
-
             this.rankList.scrollTo(0);
-          
             data.forEach((v: any,i) => {
                 if (v.avatarUrl == UserData.avatarUrl) {
                     self.selfRankData.index = i+1;

@@ -11,7 +11,6 @@ export default class ProvocationOther extends ui.ProvocationOtherUI {
     
     //type 0：经典，1：关卡
     public openView(_type:number): void {
-        // let data = FriendData.instance.friends;
         FriendData.instance.getFriends(_type,(data)=>{
             this.visible = true;
             let rank = -1;

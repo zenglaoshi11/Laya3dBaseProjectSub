@@ -26,7 +26,6 @@ export default class SurpassOther extends ui.SurpassOtherUI {
             if(index == -1 || !curSurpass){
                 return;
             }
-    
             //存在可以超越的好友
             this.nextHead.visible = true;
             this.nextHead.skin = curSurpass.avatarUrl;

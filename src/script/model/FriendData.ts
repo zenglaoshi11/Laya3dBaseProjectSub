@@ -27,7 +27,8 @@ export default class FriendData {
                 success: res => {
                     self.preFriendsTime = Laya.Browser.now();
                     self.friends = [];
-                    res.data.forEach((v:any)=>{
+                    for (let index = 0; index < res.data.length; index++) {
+                        const v = res.data[index];
                         if(v.KVDataList.length > 0){
                             let _score = 0;
                             for(let i = 0; i < v.KVDataList.length; i++){
@@ -39,17 +40,15 @@ export default class FriendData {
                                 nickname:v.nickname,
                                 avatarUrl:v.avatarUrl,
                                 score:_score,
+                                rank :index
                             });
-                            Laya.loader.load(v.avatarUrl,Laya.Handler.create(this,(res)=>{
-                                
-                            }))
                             // if(!self.avatarCache[v.avatarUrl] && _score > 1){
                             //     let txt = new Laya.Texture();
                             //     txt.load(v.avatarUrl.replace("/132","/46"));
                             //     self.avatarCache[v.avatarUrl] = txt;
                             // }
                         }
-                    });
+                    }
                     if(callback){
                         _type == SORTTYPE.LEVEL ? this.sortLevel() : this.sortScore()
                         callback(self.friends);
@@ -62,6 +61,42 @@ export default class FriendData {
                 callback(self.friends);
             }
         }
+    }
+
+    getGameOverData(_type,callback){
+        this.getFriends(_type,(data)=>{
+            let list = [];
+            switch(data.length){
+                case 1:
+                case 2:
+                case 3:
+                    list = data.concat();
+                break;
+                default:
+                for(let i = 0; i < data.length; i++){
+                    if(data[i].avatarUrl == UserData.avatarUrl){
+                        if(i > 0 && i < data.length - 1){
+                            list.push(data[i-1]);
+                            list.push(data[i]);
+                            list.push(data[i+1]);
+                        }else if(i == 0 ){
+                            if(i!= data.length-1){
+                                list.push(data[i]);
+                                list.push(data[i+1]);
+                                list.push(data[i+2]);
+                            }
+                        }else if(i == data.length - 1){
+                            list.push(data[i-2]);
+                            list.push(data[i-1]);
+                            list.push(data[i]);
+                        }
+                        break;
+                    }
+                }
+                break;
+            }
+            callback(list);
+        });
     }
 
     public updateSelfScore(score:number):void{
