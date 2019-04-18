@@ -1,9 +1,18 @@
 import GameConfig from "./GameConfig";
 import UserData from "./script/model/UserData";
 import FriendData from "./script/model/FriendData";
-import { FriendRankView } from "./script/rank/FriendRankView";
+import { Rank } from "./script/Rank";
+import GameOver from "./script/GameOver";
+import SurpassOther from "./script/SurpassOther";
+import GoingSurpassOther from "./script/GoingSurpassOther";
+import ProvocationOther from "./script/ProvocationOther";
+
 class Main {
-	private friendRank:FriendRankView;
+	private rankView:Rank;
+	private gameOver:GameOver;
+	private goingSurpassOther:GoingSurpassOther;
+	private surpassOther:SurpassOther;
+	private provocationOther:ProvocationOther;
 
 	constructor() {
 		Laya.isWXOpenDataContext = true;
@@ -35,7 +44,6 @@ class Main {
 	}
 
 	onConfigLoaded(): void {
-		if (!Laya.Browser.onMiniGame) return;
 		window["wx"].getUserInfo({
 			openIdList: ['selfOpenId'],
 			lang: 'zh_CN',
@@ -54,25 +62,95 @@ class Main {
 				Laya.loader.load("res/atlas/rank.atlas");
 			}
 			switch (message['type']) {
+				case "initFrendData":
+					FriendData.instance.getFriends();
+				break;
 				case "openFriendRank"://主界面排行榜-好友排行
-					this.closeOtherView();
-					this.friendRank = new FriendRankView();
-					Laya.stage.addChild(this.friendRank);
-					FriendData.instance.getFriends(this, function(){
-						self.friendRank.drawRankList(FriendData.instance.friends);
-					});
+				self.closeOtherView();
+					if(!self.rankView){
+						self.rankView = new Rank();
+						Laya.stage.addChild(self.rankView);
+					}
+					self.rankView.openView(message.data);
 					break;
-				case "closeFriendRank"://主界面排行榜UI关闭
-					if (this.friendRank) {
-						this.friendRank.close();
-						this.friendRank = null;
+				case "closeFriendRank":
+					if (self.rankView) {
+						self.rankView.closeView();
 					}
 					break;
 				case "upSelfScore"://更新子域分数显示
 					FriendData.instance.updateSelfScore(message.data);
 				break;
+				case "openGameOver"://
+					if(!self.gameOver){
+						self.gameOver = new GameOver();
+						Laya.stage.addChild(self.gameOver);
+					}
+					self.gameOver.openView(message.data);
+				break;
+				case "closeGameOver"://
+					if (self.gameOver) {
+						self.gameOver.closeView();
+					}
+				break;
+				case "openSurpassOther"://
+					if(!self.surpassOther){
+						self.surpassOther = new SurpassOther();
+						Laya.stage.addChild(self.surpassOther);
+					}
+					self.surpassOther.openView(message.data);
+				break;
+				case "closeSurpassOther"://
+					if (self.surpassOther) {
+						self.surpassOther.closeView();
+					}
+				break;
+				case "openGoingSurpassOther"://
+					if(!self.goingSurpassOther){
+						self.goingSurpassOther = new GoingSurpassOther();
+						Laya.stage.addChild(self.goingSurpassOther);
+					}
+					self.goingSurpassOther.openView(message.data);
+				break;
+				case "closeGoingSurpassOther"://
+					if (self.goingSurpassOther) {
+						self.goingSurpassOther.closeView();
+					}
+				break;
+				case "openProvocationOther"://
+					if(!self.provocationOther){
+						self.provocationOther = new ProvocationOther();
+						Laya.stage.addChild(self.provocationOther);
+					}
+					self.provocationOther.openView(message.data);
+				break;
+				case "closeProvocationOther"://
+					if (self.provocationOther) {
+						self.provocationOther.closeView();
+					}
+				break;
+				
 			}
 		}.bind(this));
+	}
+
+	closeOtherView(){
+		let self = this;
+		if(this.rankView){
+			this.rankView.closeView();
+		}
+		if (self.provocationOther) {
+			self.provocationOther.closeView();
+		}
+		if (self.goingSurpassOther) {
+			self.goingSurpassOther.closeView();
+		}
+		if (self.surpassOther) {
+			self.surpassOther.closeView();
+		}
+		if (self.gameOver) {
+			self.gameOver.closeView();
+		}
 	}
 }
 //激活启动类

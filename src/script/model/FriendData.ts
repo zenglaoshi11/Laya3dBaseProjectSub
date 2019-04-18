@@ -1,11 +1,16 @@
 import UserData from "./UserData";
 
+export enum SORTTYPE {
+    LEVEL = 0,
+    ENDLESS
+}
+
 export default class FriendData {
     //一小时刷新一次好友数据
     private preFriendsTime:number = 0;
     private refreshTime:number = 1 * 60 * 60 * 1000;
     //好友数据
-    public friends:Array<any> = [];
+    private friends:Array<any> = [];
     // //缓存头像
     // public static avatarCache:any = {};
 
@@ -14,7 +19,7 @@ export default class FriendData {
     }
 
     //好友数据
-    public getFriends(caller?:any, callback?:Function):void{
+    public getFriends(_type?:number,callback?:Function):void{
         let self = this;
         if(this.needRefresh(self.preFriendsTime)){
             window["wx"].getFriendCloudStorage({
@@ -35,6 +40,9 @@ export default class FriendData {
                                 avatarUrl:v.avatarUrl,
                                 score:_score,
                             });
+                            Laya.loader.load(v.avatarUrl,Laya.Handler.create(this,(res)=>{
+                                
+                            }))
                             // if(!self.avatarCache[v.avatarUrl] && _score > 1){
                             //     let txt = new Laya.Texture();
                             //     txt.load(v.avatarUrl.replace("/132","/46"));
@@ -42,14 +50,17 @@ export default class FriendData {
                             // }
                         }
                     });
-                    self.sortScore();
-                    if(callback)
-                        callback.call(caller, self.friends);
+                    if(callback){
+                        _type == SORTTYPE.LEVEL ? this.sortLevel() : this.sortScore()
+                        callback(self.friends);
+                    }
                 }
             });
         } else{
-            if(callback)
-                callback.call(caller, self.friends);
+            if(callback){
+                _type == SORTTYPE.LEVEL ? this.sortLevel() : this.sortScore()
+                callback(self.friends);
+            }
         }
     }
 
@@ -60,14 +71,23 @@ export default class FriendData {
                 break;
             }
         }
-        this.sortScore();
     }
     
-    private sortScore(){
-        this.friends = this.friends.sort((a,b)=>{
+    public sortScore(){
+        this.friends.sort((a,b)=>{
             if(a.score > b.score)
                 return -1;
             if(a.score < b.score)
+                return 1;
+            return 1;
+        });
+    }
+
+    public sortLevel(){
+        this.friends.sort((a,b)=>{
+            if(a.level > b.level)
+                return -1;
+            if(a.level < b.level)
                 return 1;
             return 1;
         });

@@ -5,20 +5,66 @@ import Scene=Laya.Scene;
 export module ui {
     export class FriendRankUI extends Laya.View {
 		public rankList:Laya.List;
+		public rankImg:Laya.Image;
+		public rankLbl:Laya.Label;
+		public avatarImg:Laya.Image;
+		public nameLbl:Laya.Label;
+		public scoreLab:Laya.Label;
 		public selfRank:Laya.Image;
-		public selfRankIcon:Laya.Image;
-		public selfHead:Laya.Image;
-		public selfSkin:Laya.Image;
-		public selfName:Laya.Label;
-		public selfRankLbl:Laya.Label;
-		public selfScore:Laya.Label;
-		public noRank:Laya.Label;
-		public anchorS:Laya.Image;
-        public static  uiView:any ={"type":"View","props":{"width":561,"top":0,"right":0,"left":0,"height":791,"bottom":0},"compId":2,"child":[{"type":"List","props":{"y":0,"x":0,"width":560,"var":"rankList","spaceY":18,"repeatX":1,"height":688,"elasticEnabled":true},"compId":4,"child":[{"type":"Box","props":{"y":0,"x":0,"renderType":"render"},"compId":12,"child":[{"type":"Image","props":{"width":560,"skin":"rank/kuan-phb-1@2x.png","sizeGrid":"12,13,12,12","name":"bg","height":82},"compId":5,"child":[{"type":"Image","props":{"y":4.5,"x":9,"width":61,"skin":"rank/1@2x.png","name":"img_rank","height":73},"compId":6},{"type":"Image","props":{"y":7,"x":80,"width":68,"name":"img_hand","height":68},"compId":7},{"type":"Image","props":{"y":16,"x":382,"width":46,"skin":"rank/wa_mini@2x@2x.png","name":"img_ski","height":48},"compId":8},{"type":"Label","props":{"y":34,"x":164,"width":110,"overflow":"hidden","name":"lbl_nickName","height":24,"fontSize":24,"color":"#004c4f"},"compId":9},{"type":"Label","props":{"y":41,"x":42,"width":76,"valign":"middle","text":"1","strokeColor":"#2c11f1","stroke":2,"overflow":"visible","name":"lbl_rankIndex","height":40,"fontSize":32,"color":"#ffffff","anchorY":0.5,"anchorX":0.5,"align":"center"},"compId":10},{"type":"Label","props":{"y":41,"x":429,"width":109,"valign":"middle","text":"1","overflow":"visible","name":"lbl_pass","height":40,"fontSize":36,"color":"#004c4f","anchorY":0.5,"anchorX":0,"align":"right"},"compId":11}]}]}]},{"type":"Image","props":{"y":700,"x":0,"width":560,"visible":false,"var":"selfRank","skin":"rank/kuan-phb-2@2x.png","sizeGrid":"12,13,12,12","height":82},"compId":13,"child":[{"type":"Image","props":{"y":4.5,"x":9,"width":61,"var":"selfRankIcon","skin":"rank/1@2x.png","height":73},"compId":14},{"type":"Image","props":{"y":7,"x":80,"width":68,"var":"selfHead","name":"img_hand","height":68},"compId":15},{"type":"Image","props":{"y":16,"x":383,"width":46,"var":"selfSkin","skin":"rank/wa_mini@2x@2x.png","height":48},"compId":16},{"type":"Label","props":{"y":34,"x":164,"width":110,"var":"selfName","overflow":"hidden","name":"lbl_nickName","height":24,"fontSize":24,"color":"#004c4f"},"compId":17},{"type":"Label","props":{"y":44,"x":40,"width":80,"var":"selfRankLbl","valign":"middle","text":"1","strokeColor":"#2c11f1","stroke":2,"overflow":"visible","name":"lbl_rankIndex","height":40,"fontSize":22,"color":"#ffffff","anchorY":0.5,"anchorX":0.5,"align":"center"},"compId":18},{"type":"Label","props":{"y":41,"x":429,"width":109,"var":"selfScore","valign":"middle","text":"1","overflow":"visible","name":"lbl_pass","height":40,"fontSize":36,"color":"#004c4f","anchorY":0.5,"anchorX":0,"align":"right"},"compId":19},{"type":"Label","props":{"y":46,"x":42,"width":76,"visible":false,"var":"noRank","valign":"middle","text":"100+","strokeColor":"#2c11f1","stroke":2,"overflow":"visible","name":"noRank","height":40,"fontSize":30,"color":"#ffffff","bold":false,"anchorY":0.5,"anchorX":0.5,"align":"center"},"compId":20}]},{"type":"Image","props":{"width":561,"var":"anchorS","height":791},"compId":3}],"loadList":["rank/kuan-phb-1@2x.png","rank/1@2x.png","rank/wa_mini@2x@2x.png","rank/kuan-phb-2@2x.png"],"loadList3D":[]};
+		public rankImgMy:Laya.Image;
+		public rankLabMy:Laya.Label;
+		public avatarImgMy:Laya.Image;
+		public nameLabMy:Laya.Label;
+		public scoreLabMy:Laya.Label;
+        public static  uiView:any ={"type":"View","props":{"width":561,"top":0,"right":0,"left":0,"height":791,"bottom":0},"compId":2,"child":[{"type":"List","props":{"y":0,"x":0,"width":560,"var":"rankList","spaceY":18,"repeatY":7,"repeatX":1,"height":688,"elasticEnabled":true},"compId":4,"child":[{"type":"Box","props":{"y":0,"x":0,"renderType":"render"},"compId":12,"child":[{"type":"Image","props":{"y":0,"x":0,"width":560,"skin":"rank/kuan-phb-1@2x.png","sizeGrid":"12,13,12,12","name":"bg","height":82},"compId":5},{"type":"Image","props":{"y":4,"x":9,"width":61,"var":"rankImg","skin":"rank/1@2x.png","name":"rankImg","height":73},"compId":6},{"type":"Label","props":{"y":41,"x":38,"width":76,"var":"rankLbl","valign":"middle","text":"1","strokeColor":"#2c11f1","stroke":2,"overflow":"visible","name":"rankLab","height":40,"fontSize":32,"color":"#8d430d","anchorY":0.5,"anchorX":0.5,"align":"center"},"compId":10},{"type":"Image","props":{"y":7,"x":80,"width":68,"var":"avatarImg","name":"avatarImg","height":68},"compId":7},{"type":"Label","props":{"y":29,"x":164,"width":222,"var":"nameLbl","overflow":"hidden","name":"nameLab","height":24,"fontSize":24,"color":"#010101"},"compId":9},{"type":"Label","props":{"y":41,"x":429,"width":109,"var":"scoreLab","valign":"middle","text":"1","overflow":"visible","name":"scoreLab","height":40,"fontSize":36,"color":"#004c4f","anchorY":0.5,"anchorX":0,"align":"right"},"compId":11}]}]},{"type":"Image","props":{"y":700,"x":0,"width":560,"visible":false,"var":"selfRank","skin":"rank/kuan-phb-2@2x.png","sizeGrid":"12,13,12,12","height":82},"compId":13,"child":[{"type":"Image","props":{"y":4,"x":9,"width":61,"var":"rankImgMy","skin":"rank/1@2x.png","name":"rankImgMy","height":73},"compId":27},{"type":"Label","props":{"y":41,"x":38,"width":76,"var":"rankLabMy","valign":"middle","text":"1","strokeColor":"#2c11f1","stroke":2,"overflow":"visible","name":"rankLabMy","height":40,"fontSize":32,"color":"#8d430d","anchorY":0.5,"anchorX":0.5,"align":"center"},"compId":28},{"type":"Image","props":{"y":7,"x":80,"width":68,"var":"avatarImgMy","name":"avatarImgMy","height":68},"compId":29},{"type":"Label","props":{"y":29,"x":164,"width":222,"var":"nameLabMy","overflow":"hidden","name":"nameLabMy","height":24,"fontSize":24,"color":"#010101"},"compId":30},{"type":"Label","props":{"y":41,"x":429,"width":109,"var":"scoreLabMy","valign":"middle","text":"1","overflow":"visible","name":"scoreLabMy","height":40,"fontSize":36,"color":"#004c4f","anchorY":0.5,"anchorX":0,"align":"right"},"compId":31}]}],"loadList":["rank/kuan-phb-1@2x.png","rank/1@2x.png","rank/kuan-phb-2@2x.png"],"loadList3D":[]};
         constructor(){ super()}
         createChildren():void {
             super.createChildren();
             this.createView(FriendRankUI.uiView);
+        }
+    }
+    export class GameOverUI extends Laya.Scene {
+		public item0:Laya.Box;
+		public avatarImg:Laya.Image;
+		public nameLab:Laya.Label;
+		public rankLab:Laya.Label;
+		public scoreLab:Laya.Label;
+		public item1:Laya.Box;
+		public item2:Laya.Box;
+        public static  uiView:any ={"type":"Scene","props":{"width":730,"height":288},"compId":2,"child":[{"type":"Box","props":{"y":0,"x":0,"width":244,"var":"item0","renderType":"render","name":"item0","height":298},"compId":4,"child":[{"type":"Image","props":{"y":128,"x":122,"width":100,"var":"avatarImg","skin":"common/img_user_default.png","name":"avatarImg","mouseEnabled":false,"height":100,"centerX":0,"anchorY":0.5,"anchorX":0.5},"compId":6},{"type":"Image","props":{"y":128,"x":122,"width":100,"skin":"common/img_user_default.png","name":"mask","mouseEnabled":false,"height":100,"centerX":0,"anchorY":0.5,"anchorX":0.5},"compId":10},{"type":"Label","props":{"y":209,"x":122,"var":"nameLab","text":"111","name":"nameLab","mouseEnabled":false,"fontSize":20,"font":"SimHei","color":"#000000","anchorY":0.5,"anchorX":0.5},"compId":7},{"type":"Label","props":{"y":37,"x":122,"width":76,"var":"rankLab","name":"rankLab","mouseEnabled":false,"height":37,"fontSize":34,"font":"SimHei","color":"#000000","centerX":0,"bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},"compId":8},{"type":"Label","props":{"y":260,"x":122,"width":104,"var":"scoreLab","text":"111","name":"scoreLab","mouseEnabled":false,"height":45,"fontSize":30,"font":"SimHei","color":"#000000","bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},"compId":9}]},{"type":"Box","props":{"y":0,"x":244,"width":244,"var":"item1","renderType":"render","name":"item1","height":298},"compId":11,"child":[{"type":"Image","props":{"y":128,"x":122,"width":100,"skin":"common/img_user_default.png","name":"avatarImg","mouseEnabled":false,"height":100,"centerX":0,"anchorY":0.5,"anchorX":0.5},"compId":12},{"type":"Image","props":{"y":128,"x":122,"width":100,"skin":"common/img_user_default.png","name":"mask","mouseEnabled":false,"height":100,"centerX":0,"anchorY":0.5,"anchorX":0.5},"compId":13},{"type":"Label","props":{"y":209,"x":122,"text":"111","name":"nameLab","mouseEnabled":false,"fontSize":20,"font":"SimHei","color":"#000000","anchorY":0.5,"anchorX":0.5},"compId":14},{"type":"Label","props":{"y":37,"x":122,"width":76,"name":"rankLab","mouseEnabled":false,"height":37,"fontSize":34,"font":"SimHei","color":"#000000","centerX":0,"bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},"compId":15},{"type":"Label","props":{"y":260,"x":122,"width":104,"text":"111","name":"scoreLab","mouseEnabled":false,"height":45,"fontSize":30,"font":"SimHei","color":"#000000","bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},"compId":16}]},{"type":"Box","props":{"y":0,"x":488,"width":244,"var":"item2","renderType":"render","name":"item2","height":298},"compId":17,"child":[{"type":"Image","props":{"y":128,"x":122,"width":100,"skin":"common/img_user_default.png","name":"avatarImg","mouseEnabled":false,"height":100,"centerX":0,"anchorY":0.5,"anchorX":0.5},"compId":18},{"type":"Image","props":{"y":128,"x":122,"width":100,"skin":"common/img_user_default.png","name":"mask","mouseEnabled":false,"height":100,"centerX":0,"anchorY":0.5,"anchorX":0.5},"compId":19},{"type":"Label","props":{"y":209,"x":122,"text":"111","name":"nameLab","mouseEnabled":false,"fontSize":20,"font":"SimHei","color":"#000000","anchorY":0.5,"anchorX":0.5},"compId":20},{"type":"Label","props":{"y":37,"x":122,"width":76,"name":"rankLab","mouseEnabled":false,"height":37,"fontSize":34,"font":"SimHei","color":"#000000","centerX":0,"bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},"compId":21},{"type":"Label","props":{"y":260,"x":122,"width":104,"text":"111","name":"scoreLab","mouseEnabled":false,"height":45,"fontSize":30,"font":"SimHei","color":"#000000","bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},"compId":22}]}],"loadList":["common/img_user_default.png"],"loadList3D":[]};
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.createView(GameOverUI.uiView);
+        }
+    }
+    export class GoingSurpassOtherUI extends Laya.Scene {
+		public head0:Laya.Image;
+		public head1:Laya.Image;
+		public head2:Laya.Image;
+        public static  uiView:any ={"type":"Scene","props":{"width":166,"height":50},"compId":2,"child":[{"type":"Image","props":{"y":0,"x":0,"width":50,"var":"head0","skin":"comp/image.png","name":"head0","height":50},"compId":3},{"type":"Image","props":{"y":0,"x":58,"width":50,"var":"head1","skin":"comp/image.png","name":"head1","height":50},"compId":4},{"type":"Image","props":{"y":0,"x":116,"width":50,"var":"head2","skin":"comp/image.png","name":"head2","height":50},"compId":5}],"loadList":["comp/image.png"],"loadList3D":[]};
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.createView(GoingSurpassOtherUI.uiView);
+        }
+    }
+    export class ProvocationOtherUI extends Laya.Scene {
+		public nextHead:Laya.Image;
+        public static  uiView:any ={"type":"Scene","props":{"width":66,"height":66},"compId":2,"child":[{"type":"Image","props":{"width":66,"var":"nextHead","skin":"comp/image.png","name":"nextHead","height":66},"compId":3}],"loadList":["comp/image.png"],"loadList3D":[]};
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.createView(ProvocationOtherUI.uiView);
+        }
+    }
+    export class SurpassOtherUI extends Laya.Scene {
+		public nextHead:Laya.Image;
+        public static  uiView:any ={"type":"Scene","props":{"width":60,"height":60},"compId":2,"child":[{"type":"Image","props":{"width":60,"var":"nextHead","skin":"comp/image.png","name":"nextHead","height":60},"compId":3}],"loadList":["comp/image.png"],"loadList3D":[]};
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.createView(SurpassOtherUI.uiView);
         }
     }
 }
