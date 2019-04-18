@@ -24,11 +24,9 @@ export default class ProvocationOther extends ui.ProvocationOtherUI {
             var avatarUrl;
             if(rank == 0 && length > 1){
                 avatarUrl = data[1].avatarUrl;
-            }
-            else if(rank == -1 || rank == 0){
+            }else if(rank == -1 || rank == 0){
                 avatarUrl = UserData.avatarUrl;
-            }
-            else if(rank > 0){
+            }else if(rank > 0){
                 let random = Math.floor(Math.random() * rank);
                 if(random < rank){
                     avatarUrl = data[random].avatarUrl
