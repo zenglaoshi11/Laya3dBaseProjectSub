@@ -1,6 +1,6 @@
 import { SORTTYPE } from "./model/FriendData";
 
-export default class RankItem extends Laya.Box {
+export default class RankItem extends Laya.Script {
     private rankImg: Laya.Image;
     private rankLab: Laya.Label;
 
@@ -9,15 +9,14 @@ export default class RankItem extends Laya.Box {
 
     private scoreLab: Laya.Label;
 
-    constructor() { 
-        super(); 
-        this.rankImg = this.getChildByName("rankImg") as Laya.Image;
-        this.rankLab = this.getChildByName("rankLab") as Laya.Label;
+    onAwake(){
+        this.rankImg = this.owner.getChildByName("rankImg") as Laya.Image;
+        this.rankLab = this.owner.getChildByName("rankLab") as Laya.Label;
 
-        this.avatarImg = this.getChildByName("avatarImg") as Laya.Image;
-        this.nameLab = this.getChildByName("nameLab") as Laya.Label;
+        this.avatarImg = this.owner.getChildByName("avatarImg") as Laya.Image;
+        this.nameLab = this.owner.getChildByName("nameLab") as Laya.Label;
 
-        this.scoreLab = this.getChildByName("scoreLab") as Laya.Label;
+        this.scoreLab = this.owner.getChildByName("scoreLab") as Laya.Label;
     }
 
     updateItem(itemData,_type:number){
@@ -50,4 +49,7 @@ export default class RankItem extends Laya.Box {
         }
     }
 
+    clean(){
+        this.owner.active = false;
+    }
 }

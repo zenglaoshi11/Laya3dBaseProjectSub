@@ -4,6 +4,7 @@ import { ui } from "../ui/layaMaxUI";
 import FriendData, { SORTTYPE } from "./model/FriendData";
 
 export class Rank extends ui.FriendRankUI {
+    private selfRankITem:RankItem;
     private selfRankData:any = {};
     private _type:number;
 
@@ -41,32 +42,12 @@ export class Rank extends ui.FriendRankUI {
     }
     
     setMyRankInfo(){
-        let itemData = this.selfRankData;
-        this.selfRank.visible = true;
-        this.rankImgMy.active = false;
-        this.rankLabMy.text = itemData.index;
-        switch(itemData.index){
-            case 1:
-            case 2:
-            case 3:
-                this.rankLabMy.text = "";
-                this.rankImgMy.skin = "rank/"+ itemData.index +".png";
-                this.rankImgMy.active = true;
-            break;
-        }
-
-        if (itemData.headImage && itemData.headImage != "" ) {
-            let avatarUrl = itemData.headImage.replace("/132", "/46");
-            this.avatarImgMy.skin = avatarUrl;
-        }
-        let name = itemData.user_nickname.length > 6 ? itemData.user_nickname.substr(0, 8) : itemData.user_nickname;
-        this.nameLabMy.text = name!=""?name:"神秘玩家";
-
-        this.scoreLab.text = itemData.score;
+        this.selfRankITem.updateItem(this.selfRankData);
     }
 
-    onRender(cell: RankItem, index: number): any {
-        cell.updateItem(cell.dataSource,this._type);
+    onRender(cell: Laya.Box, index: number): any {
+        let item:RankItem = cell.getComponent(RankItem);
+        item.updateItem(cell.dataSource);
     }
 
     public closeView(): void {
