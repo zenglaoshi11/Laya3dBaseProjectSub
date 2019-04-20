@@ -42,12 +42,12 @@ export class Rank extends ui.FriendRankUI {
     }
     
     setMyRankInfo(){
-        this.selfRankITem.updateItem(this.selfRankData);
+        this.selfRankITem.updateItem(this.selfRankData,this._type);
     }
 
     onRender(cell: Laya.Box, index: number): any {
         let item:RankItem = cell.getComponent(RankItem);
-        item.updateItem(cell.dataSource);
+        item.updateItem(cell.dataSource,this._type);
     }
 
     public closeView(): void {
