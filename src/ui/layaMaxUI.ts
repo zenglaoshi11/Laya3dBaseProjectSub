@@ -24,7 +24,7 @@ export module ui {
 		public head0:Laya.Image;
 		public head1:Laya.Image;
 		public head2:Laya.Image;
-        public static  uiView:any ={"type":"Scene","props":{"width":166,"height":50},"compId":2,"child":[{"type":"Image","props":{"y":0,"x":0,"width":50,"var":"head0","skin":"comp/image.png","name":"head0","height":50},"compId":3},{"type":"Image","props":{"y":0,"x":58,"width":50,"var":"head1","skin":"comp/image.png","name":"head1","height":50},"compId":4},{"type":"Image","props":{"y":0,"x":116,"width":50,"var":"head2","skin":"comp/image.png","name":"head2","height":50},"compId":5}],"loadList":["comp/image.png"],"loadList3D":[]};
+        public static  uiView:any ={"type":"Scene","props":{"width":750,"height":91},"compId":2,"child":[{"type":"Sprite","props":{"y":-1,"x":3,"texture":"rank/bg_fuhuo_chaoyue.png"},"compId":9},{"type":"Image","props":{"y":20.5,"width":50,"var":"head0","skin":"comp/image.png","name":"head0","height":50,"centerX":-58},"compId":3},{"type":"Image","props":{"y":21,"width":50,"var":"head1","skin":"comp/image.png","name":"head1","height":50,"centerX":0},"compId":4},{"type":"Image","props":{"y":21,"width":50,"var":"head2","skin":"comp/image.png","name":"head2","height":50,"centerX":58},"compId":5}],"loadList":["rank/bg_fuhuo_chaoyue.png","comp/image.png"],"loadList3D":[]};
         constructor(){ super()}
         createChildren():void {
             super.createChildren();
