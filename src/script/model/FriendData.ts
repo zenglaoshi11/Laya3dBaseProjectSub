@@ -23,7 +23,7 @@ export default class FriendData {
         let self = this;
         if(this.needRefresh(self.preFriendsTime)){
             window["wx"].getFriendCloudStorage({
-                keyList: ["score"],
+                keyList: ["score","level"],
                 success: res => {
                     self.preFriendsTime = Laya.Browser.now();
                     self.friends = [];
@@ -40,7 +40,6 @@ export default class FriendData {
                                 nickname:v.nickname,
                                 avatarUrl:v.avatarUrl,
                                 score:_score,
-                                rank :index
                             });
                             // if(!self.avatarCache[v.avatarUrl] && _score > 1){
                             //     let txt = new Laya.Texture();
@@ -129,6 +128,9 @@ export default class FriendData {
     }
 
     public needRefresh(pre:number):boolean{
+        console.log(pre)
+        console.log(Laya.Browser.now() - pre)
+        console.log(this.refreshTime)
         return Laya.Browser.now() - pre > this.refreshTime;
     }
 }

@@ -1,6 +1,6 @@
 import { SORTTYPE } from "./model/FriendData";
 
-export default class RankItem extends Laya.Script {
+export default class RankItem extends Laya.Script  {
     private rankImg: Laya.Image;
     private rankLab: Laya.Label;
 
@@ -8,6 +8,10 @@ export default class RankItem extends Laya.Script {
     private nameLab: Laya.Label;
 
     private scoreLab: Laya.Label;
+
+    constructor() { 
+        super(); 
+    }
 
     onAwake(){
         this.rankImg = this.owner.getChildByName("rankImg") as Laya.Image;
@@ -20,15 +24,16 @@ export default class RankItem extends Laya.Script {
     }
 
     updateItem(itemData,_type:number){
-        this.rankImg.active = false;
-        this.rankLab.text = itemData.index;
+        this.owner.active= true;
+        this.rankImg.visible = false;
+        this.rankLab.text = itemData.index|| "未上榜";
         switch(itemData.index){
             case 1:
             case 2:
             case 3:
                 this.rankLab.text = "";
                 this.rankImg.skin = "rank/"+ itemData.index +".png";
-                this.rankImg.active = true;
+                this.rankImg.visible = true;
             break;
         }
 
@@ -36,14 +41,14 @@ export default class RankItem extends Laya.Script {
             let avatarUrl = itemData.headImage.replace("/132", "/46");
             this.avatarImg.skin = avatarUrl;
         }
-        let name = itemData.user_nickname.length > 6 ? itemData.user_nickname.substr(0, 8) : itemData.user_nickname;
-        this.nameLab.text = name!=""?name:"神秘玩家";
+        this.nameLab.text = itemData.nickname ? itemData.nickname : "神秘玩家";
 
         switch (_type) {
             case SORTTYPE.LEVEL:	
                 this.scoreLab.text = itemData.score + "关"
             break;
-            case SORTTYPE.ENDLESS:
+            // case SORTTYPE.ENDLESS:
+            default:
                 this.scoreLab.text = itemData.score;
             break;
         }

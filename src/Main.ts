@@ -58,9 +58,9 @@ class Main {
 		FriendData.instance.getFriends();
 		let self = this;
 		Laya.Browser.window.wx.onMessage(function (message) {
-			if(message.url == "res/atlas/rank.atlas"){
-				Laya.loader.load("res/atlas/rank.atlas");
-			}
+			// if(message.url == "res/atlas/rank.atlas"){
+			// 	Laya.loader.load("res/atlas/rank.atlas");
+			// }
 			switch (message['type']) {
 				case "initFrendData":
 					FriendData.instance.getFriends();

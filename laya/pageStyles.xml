@@ -1,5 +1,5 @@
 <page>
-   <item name="test/TestScene.scene" props="" ifExport="分离模式" aName=""/>
+   <item name="Rank.scene" props="" ifExport="内嵌模式" aName=""/>
    <item name="GameOver.scene" props="" ifExport="内嵌模式" aName=""/>
-   <item name="FriendRank.scene" props="" ifExport="内嵌模式" aName=""/>
+   <item name="SurpassOther.scene" props="" ifExport="内嵌模式" aName=""/>
 </page>

@@ -7,8 +7,9 @@ export default class GoingSurpassOther extends ui.GoingSurpassOtherUI {
     constructor() { super(); }
     
     public openView(_type?: number): void {
+        this.active = true;
         for (let index = 0; index < 2; index++) {
-            this.getChildByName("head" + index).active = false;
+            this["head" + index].visible = false;
         }
 
         FriendData.instance.getFriends(_type,(data)=>{
@@ -19,12 +20,12 @@ export default class GoingSurpassOther extends ui.GoingSurpassOtherUI {
                     break;
                 }
             }
-            let head:Laya.Image;
-            let length = Math.min(index + 2,data.length - index);
+            let length = Math.min(index + 3,data.length);
+            let j = 0;
             for (; index < length; index++) {
-                head = this.getChildByName("head" + index) as Laya.Image;
-                head.skin = data.avatarUrl;
-                head.active = true;
+                this["head" + j].skin = data[index].avatarUrl;
+                this["head" + j].visible = true;
+                j++;
             }
         });
     }

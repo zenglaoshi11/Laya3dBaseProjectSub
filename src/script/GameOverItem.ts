@@ -23,8 +23,7 @@ export default class GameoverItem extends Laya.Box {
         if (itemData.headImage && itemData.headImage != "" ) {
             this.avatarImg.skin = itemData.headImage;
         }
-        let name = itemData.user_nickname.length > 6 ? itemData.user_nickname.substr(0, 8) : itemData.user_nickname;
-        this.nameLab.text = name!=""?name:"神秘玩家";
+        this.nameLab.text = itemData.nickname ? itemData.nickname : "神秘玩家";
 
         this.scoreLab.text = itemData.score;
         switch (_type) {
