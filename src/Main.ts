@@ -58,9 +58,12 @@ class Main {
 		FriendData.instance.getFriends();
 		let self = this;
 		Laya.Browser.window.wx.onMessage(function (message) {
-			// if(message.url == "res/atlas/rank.atlas"){
-			// 	Laya.loader.load("res/atlas/rank.atlas");
-			// }
+			if(message.url == "res/atlas/rank.atlas"){
+				Laya.MiniFileMgr.ziyuFileData[message.url] = message.data;
+				Laya.loader.load("res/atlas/rank.atlas",Laya.Handler.create(this,function(){
+					console.log("res/atlas/rank.atlas加载完成");
+				}));
+			}
 			switch (message['type']) {
 				case "initFrendData":
 					FriendData.instance.getFriends();
