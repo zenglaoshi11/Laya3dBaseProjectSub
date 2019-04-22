@@ -1,6 +1,6 @@
 import { SORTTYPE } from "./model/FriendData";
 
-export default class GameoverItem extends Laya.Box {
+export default class GameoverItem extends Laya.Script {
     private rankLab: Laya.Label;
 
     private avatarImg: Laya.Image;
@@ -8,20 +8,20 @@ export default class GameoverItem extends Laya.Box {
 
     private scoreLab: Laya.Label;
 
-    constructor() { 
-        super(); 
-        this.rankLab = this.getChildByName("rankLab") as Laya.Label;
+    onAwake() { 
+        this.rankLab = this.owner.getChildByName("rankLab") as Laya.Label;
 
-        this.avatarImg = this.getChildByName("avatarImg") as Laya.Image;
-        this.nameLab = this.getChildByName("nameLab") as Laya.Label;
+        this.avatarImg = this.owner.getChildByName("avatarImg") as Laya.Image;
+        this.nameLab = this.owner.getChildByName("nameLab") as Laya.Label;
 
-        this.scoreLab = this.getChildByName("scoreLab") as Laya.Label;
+        this.scoreLab = this.owner.getChildByName("scoreLab") as Laya.Label;
     }
 
     updateItem(itemData,_type:number){
+        (this.owner as Laya.View).visible = true;
         this.rankLab.text = itemData.index;
-        if (itemData.headImage && itemData.headImage != "" ) {
-            this.avatarImg.skin = itemData.headImage;
+        if (itemData.avatarUrl && itemData.avatarUrl != "" ) {
+            this.avatarImg.skin = itemData.avatarUrl;
         }
         this.nameLab.text = itemData.nickname ? itemData.nickname : "神秘玩家";
 
@@ -37,7 +37,7 @@ export default class GameoverItem extends Laya.Box {
     }
 
     clean(){
-        this.active = false;
+        (this.owner as Laya.View).visible = false;
     }
 
 }

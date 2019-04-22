@@ -24,7 +24,7 @@ export module ui {
 		public head0:Laya.Image;
 		public head1:Laya.Image;
 		public head2:Laya.Image;
-        public static  uiView:any ={"type":"Scene","props":{"width":166,"height":50},"compId":2,"child":[{"type":"Image","props":{"y":0,"x":0,"width":50,"var":"head0","skin":"comp/image.png","name":"head0","height":50},"compId":3},{"type":"Image","props":{"y":0,"x":58,"width":50,"var":"head1","skin":"comp/image.png","name":"head1","height":50},"compId":4},{"type":"Image","props":{"y":0,"x":116,"width":50,"var":"head2","skin":"comp/image.png","name":"head2","height":50},"compId":5},{"type":"Text","props":{"y":0,"x":11.09619140625,"text":"1","fontSize":50,"color":"#ffffff","runtime":"laya.display.Text"},"compId":6},{"type":"Text","props":{"y":0,"x":69.09619140625,"text":"2","fontSize":50,"color":"#ffffff","runtime":"laya.display.Text"},"compId":7},{"type":"Text","props":{"y":0,"x":127.09619140625,"text":"3","fontSize":50,"color":"#ffffff","runtime":"laya.display.Text"},"compId":8}],"loadList":["comp/image.png"],"loadList3D":[]};
+        public static  uiView:any ={"type":"Scene","props":{"width":166,"height":50},"compId":2,"child":[{"type":"Image","props":{"y":0,"x":0,"width":50,"var":"head0","skin":"comp/image.png","name":"head0","height":50},"compId":3},{"type":"Image","props":{"y":0,"x":58,"width":50,"var":"head1","skin":"comp/image.png","name":"head1","height":50},"compId":4},{"type":"Image","props":{"y":0,"x":116,"width":50,"var":"head2","skin":"comp/image.png","name":"head2","height":50},"compId":5}],"loadList":["comp/image.png"],"loadList3D":[]};
         constructor(){ super()}
         createChildren():void {
             super.createChildren();

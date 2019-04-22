@@ -10,7 +10,7 @@ export default class GameConfig{
     static screenMode:string="vertical";
     static alignV:string="middle";
     static alignH:string="center";
-    static startScene:any="GoingSurpassOther.scene";
+    static startScene:any="GameOver.scene";
     static sceneRoot:string="";
     static debug:boolean=false;
     static stat:boolean=false;

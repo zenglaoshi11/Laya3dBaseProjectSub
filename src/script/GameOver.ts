@@ -8,7 +8,7 @@ export default class GameOver extends ui.GameOverUI {
   
     constructor() { 
         super();
-        for (let index = 0; index < 2; index++) {
+        for (let index = 0; index < 3; index++) {
             // let item = this.getChildByName("item" + index).addComponent(GameoverItem);
             this._items.push(this.getChildByName("item" + index));
         }
@@ -22,7 +22,7 @@ export default class GameOver extends ui.GameOverUI {
         FriendData.instance.getGameOverData(_type,(list)=>{
             for (let index = 0; index < list.length; index++) {
                 const element:GameoverItem = this._items[index].getComponent(GameoverItem);
-                element.updateItem(_type,list[index]);
+                element.updateItem(list[index],_type);
             }
         });
     }
