@@ -61,9 +61,7 @@ class Main {
 		Laya.Browser.window.wx.onMessage(function (message) {
 			if(message.url == "res/atlas/rank.atlas"){
 				Laya.MiniFileMgr.ziyuFileData[message.url] = message.data;
-				console.log("message.url :",message.url);
 				Laya.loader.load("res/atlas/rank.atlas",Laya.Handler.create(this,function(){
-					console.log("完成res/atlas/rank.atlas");
 				}));
 			}
 			switch (message['type']) {

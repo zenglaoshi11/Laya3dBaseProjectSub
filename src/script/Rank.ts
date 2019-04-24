@@ -23,20 +23,18 @@ export class Rank extends ui.RankUI {
 
     public openView(_type:number): void {
         this.visible = true;
-        this._type = _type;
+        this._type = _type || SORTTYPE.ENDLESS;
         let self = this;
         this.selfRankData = {
             nickname:UserData.nickName,
-            headImage:UserData.avatarUrl,
+            avatarUrl:UserData.avatarUrl,
         }
         FriendData.instance.getFriends(_type,(data)=>{
             this.rankList.scrollTo(0);
-            console.log(data)
             data.forEach((v: any,i) => {
                 if (v.avatarUrl == UserData.avatarUrl) {
                     self.selfRankData.index = i+1;
                     self.selfRankData.score = data[i].score;
-                    console.log(self.selfRankData)
                 }
             });
             this.rankList.repeatY = data.length;
@@ -47,7 +45,6 @@ export class Rank extends ui.RankUI {
     }
     
     setMyRankInfo(){
-        console.log(this.selfRankData)
         this.selfRankITem.updateItem(this.selfRankData,this._type);
         this.selfRank.visible = true;
     }
