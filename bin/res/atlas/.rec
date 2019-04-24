@@ -1,20 +1,12 @@
 D .
+D comp
 D rank
-P 711B90C3 1@2x.png
-P 7D237B28 2@2x.png
-P 4AE9CBB3 3@2x.png
-P D156C41E anniu-fanhui@2x.png
-P 139DA28B biaoq-hyph-1@2x.png
-P B3BA57C8 biaoq-hyph-2@2x.png
-P 3A9C033A biaoq-sjph-1@2x.png
-P 31182F30 biaoq-sjph-2@2x.png
-P 1E446487 biaoqiang-1@2x.png
-P C1BBD98A biaoqiang-2@2x.png
-P DA2ACE1A fanhui@2x.png
-P B0555E09 kuan-phb-1@2x.png
-P 990C12C1 kuan-phb-2@2x.png
-P 4034B491 kuan-phb@2x.png
-P F863A44F phb-shuzi@2x.png
-P 8B26579B phb-xiang-1@2x.png
-P 3540D9FC toux@2x.png
-P 18B872A6 wa_mini@2x@2x.png
+P 124C5146 bg_fight.png
+P 2A149C25 bg_gosuperpass.png
+P 302D02D7 bg_item.png
+P 4BBCB823 bg_myItem.png
+P 0C9897D5 img_default_avatar.png
+P 711B90C3 img_rank1.png
+P 7D237B28 img_rank2.png
+P 4AE9CBB3 img_rank3.png
+P 1000A8F7 img_superpass.png

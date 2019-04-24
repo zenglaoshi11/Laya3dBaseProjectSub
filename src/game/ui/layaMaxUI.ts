@@ -2,7 +2,6 @@
 import View=Laya.View;
 import Dialog=Laya.Dialog;
 import Scene=Laya.Scene;
-var REG: Function = Laya.ClassUtils.regClass;
 export module game.ui {
     export class GameOverUI extends Laya.Scene {
 		public item0:Laya.Box;
@@ -19,7 +18,6 @@ export module game.ui {
             this.createView(GameOverUI.uiView);
         }
     }
-    REG("game.ui.GameOverUI",GameOverUI);
     export class GoingSurpassOtherUI extends Laya.Scene {
 		public head0:Laya.Image;
 		public head1:Laya.Image;
@@ -31,7 +29,6 @@ export module game.ui {
             this.createView(GoingSurpassOtherUI.uiView);
         }
     }
-    REG("game.ui.GoingSurpassOtherUI",GoingSurpassOtherUI);
     export class ProvocationOtherUI extends Laya.Scene {
 		public nextHead:Laya.Image;
 		public provocationOtherBg:Laya.Image;
@@ -43,18 +40,16 @@ export module game.ui {
             this.createView(ProvocationOtherUI.uiView);
         }
     }
-    REG("game.ui.ProvocationOtherUI",ProvocationOtherUI);
     export class RankUI extends Laya.Scene {
 		public rankList:Laya.List;
 		public selfRank:Laya.Image;
-        public static  uiView:any ={"type":"Scene","props":{"width":561,"top":0,"right":0,"left":0,"height":791,"bottom":0},"compId":2,"child":[{"type":"List","props":{"y":0,"x":0,"width":560,"var":"rankList","spaceY":18,"repeatY":7,"repeatX":1,"height":688,"elasticEnabled":true},"compId":4,"child":[{"type":"Box","props":{"y":0,"x":0,"renderType":"render"},"compId":12,"child":[{"type":"Image","props":{"y":0,"x":0,"width":560,"skin":"rank/bg_item.png","sizeGrid":"12,13,12,12","name":"bg","height":82},"compId":5},{"type":"Image","props":{"y":4,"x":9,"width":61,"skin":"rank/img_rank1.png","name":"rankImg","height":73},"compId":6},{"type":"Label","props":{"y":41,"x":38,"width":76,"valign":"middle","text":"1","strokeColor":"#2c11f1","stroke":2,"overflow":"visible","name":"rankLab","height":40,"fontSize":32,"color":"#8d430d","bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},"compId":10},{"type":"Image","props":{"y":7,"x":80,"width":68,"skin":"rank/img_default_avatar.png","name":"avatarImg","height":68},"compId":7},{"type":"Label","props":{"y":29,"x":164,"width":222,"overflow":"hidden","name":"nameLab","height":24,"fontSize":24,"color":"#010101"},"compId":9},{"type":"Label","props":{"y":41,"x":429,"width":109,"valign":"middle","text":"1","overflow":"visible","name":"scoreLab","height":40,"fontSize":36,"color":"#000000","bold":true,"anchorY":0.5,"anchorX":0,"align":"right"},"compId":11}]}]},{"type":"Image","props":{"y":700,"x":0,"width":560,"visible":false,"var":"selfRank","skin":"rank/bg_myItem.png","sizeGrid":"12,13,12,12","height":82},"compId":13,"child":[{"type":"Image","props":{"y":4,"x":9,"width":61,"skin":"rank/img_rank1.png","name":"rankImg","height":73},"compId":27},{"type":"Label","props":{"y":41,"x":38,"width":76,"valign":"middle","text":"1","strokeColor":"#2c11f1","stroke":2,"overflow":"visible","name":"rankLab","height":40,"fontSize":32,"color":"#8d430d","bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},"compId":28},{"type":"Image","props":{"y":7,"x":80,"width":68,"skin":"rank/img_default_avatar.png","name":"avatarImg","height":68},"compId":29},{"type":"Label","props":{"y":29,"x":164,"width":222,"overflow":"hidden","name":"nameLab","height":24,"fontSize":24,"color":"#010101"},"compId":30},{"type":"Label","props":{"y":41,"x":429,"width":109,"valign":"middle","text":"1","overflow":"visible","name":"scoreLab","height":40,"fontSize":36,"color":"#000000","bold":true,"anchorY":0.5,"anchorX":0,"align":"right"},"compId":31}]}],"loadList":["rank/bg_item.png","rank/img_rank1.png","rank/img_default_avatar.png","rank/bg_myItem.png"],"loadList3D":[]};
+        public static  uiView:any ={"type":"Scene","props":{"width":561,"top":0,"right":0,"left":0,"height":828,"bottom":0},"compId":2,"child":[{"type":"List","props":{"y":0,"x":0,"width":560,"var":"rankList","spaceY":18,"repeatY":7,"repeatX":1,"height":688,"elasticEnabled":true},"compId":4,"child":[{"type":"Box","props":{"y":0,"x":0,"renderType":"render"},"compId":12,"child":[{"type":"Image","props":{"y":0,"x":0,"width":560,"skin":"rank/bg_item.png","sizeGrid":"12,13,12,12","name":"bg","height":82},"compId":5},{"type":"Image","props":{"y":4,"x":9,"width":61,"skin":"rank/img_rank1.png","name":"rankImg","height":73},"compId":6},{"type":"Label","props":{"y":41,"x":38,"width":76,"valign":"middle","text":"1","strokeColor":"#2c11f1","overflow":"visible","name":"rankLab","height":40,"fontSize":32,"color":"#8d430d","bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},"compId":10},{"type":"Image","props":{"y":7,"x":80,"width":68,"skin":"rank/img_default_avatar.png","name":"avatarImg","height":68},"compId":7},{"type":"Label","props":{"y":29,"x":164,"width":222,"overflow":"hidden","name":"nameLab","height":24,"fontSize":24,"color":"#010101"},"compId":9},{"type":"Label","props":{"y":41,"x":429,"width":109,"valign":"middle","text":"1","overflow":"visible","name":"scoreLab","height":40,"fontSize":36,"color":"#000000","bold":true,"anchorY":0.5,"anchorX":0,"align":"right"},"compId":11}]}]},{"type":"Image","props":{"y":739,"x":0,"width":560,"visible":false,"var":"selfRank","skin":"rank/bg_myItem.png","sizeGrid":"12,13,12,12","height":82},"compId":13,"child":[{"type":"Image","props":{"y":4,"x":9,"width":61,"skin":"rank/img_rank1.png","name":"rankImg","height":73},"compId":27},{"type":"Label","props":{"y":41,"x":38,"width":76,"valign":"middle","text":"1","strokeColor":"#2c11f1","overflow":"visible","name":"rankLab","height":40,"fontSize":32,"color":"#8d430d","bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},"compId":28},{"type":"Image","props":{"y":7,"x":80,"width":68,"skin":"rank/img_default_avatar.png","name":"avatarImg","height":68},"compId":29},{"type":"Label","props":{"y":29,"x":164,"width":222,"overflow":"hidden","name":"nameLab","height":24,"fontSize":24,"color":"#010101"},"compId":30},{"type":"Label","props":{"y":41,"x":429,"width":109,"valign":"middle","text":"1","overflow":"visible","name":"scoreLab","height":40,"fontSize":36,"color":"#000000","bold":true,"anchorY":0.5,"anchorX":0,"align":"right"},"compId":31}]},{"type":"Label","props":{"y":414,"x":217,"width":109,"valign":"middle","text":"坎坎坷坷","overflow":"visible","name":"scoreLab","height":40,"fontSize":36,"color":"#000000","bold":true,"anchorY":0.5,"anchorX":0,"align":"center"},"compId":36}],"loadList":["rank/bg_item.png","rank/img_rank1.png","rank/img_default_avatar.png","rank/bg_myItem.png"],"loadList3D":[]};
         constructor(){ super()}
         createChildren():void {
             super.createChildren();
             this.createView(RankUI.uiView);
         }
     }
-    REG("game.ui.RankUI",RankUI);
     export class SurpassOtherUI extends Laya.Scene {
 		public nextHead:Laya.Image;
         public static  uiView:any ={"type":"Scene","props":{"width":60,"height":60},"compId":2,"child":[{"type":"Image","props":{"width":60,"var":"nextHead","skin":"rank/img_default_avatar.png","name":"nextHead","height":60},"compId":3}],"loadList":["rank/img_default_avatar.png"],"loadList3D":[]};
@@ -64,5 +59,4 @@ export module game.ui {
             this.createView(SurpassOtherUI.uiView);
         }
     }
-    REG("game.ui.SurpassOtherUI",SurpassOtherUI);
 }

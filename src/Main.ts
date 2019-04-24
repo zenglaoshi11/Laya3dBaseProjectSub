@@ -61,7 +61,7 @@ class Main {
 			if(message.url == "res/atlas/rank.atlas"){
 				Laya.MiniFileMgr.ziyuFileData[message.url] = message.data;
 				Laya.loader.load("res/atlas/rank.atlas",Laya.Handler.create(this,function(){
-					console.log("res/atlas/rank.atlas加载完成");
+					console.log("创建");
 				}));
 			}
 			switch (message['type']) {
@@ -69,7 +69,7 @@ class Main {
 					FriendData.instance.getFriends();
 				break;
 				case "openFriendRank"://主界面排行榜-好友排行
-				self.closeOtherView();
+					self.closeOtherView();
 					if(!self.rankView){
 						self.rankView = new Rank();
 						Laya.stage.addChild(self.rankView);
@@ -83,55 +83,55 @@ class Main {
 					break;
 				case "upSelfScore"://更新子域分数显示
 					FriendData.instance.updateSelfScore(message.data);
-				break;
+					break;
 				case "openGameOver"://
 					if(!self.gameOver){
 						self.gameOver = new GameOver();
 						Laya.stage.addChild(self.gameOver);
 					}
 					self.gameOver.openView(message.data);
-				break;
+					break;
 				case "closeGameOver"://
 					if (self.gameOver) {
 						self.gameOver.closeView();
 					}
-				break;
+					break;
 				case "openSurpassOther"://
 					if(!self.surpassOther){
 						self.surpassOther = new SurpassOther();
 						Laya.stage.addChild(self.surpassOther);
 					}
 					self.surpassOther.openView(message.data);
-				break;
+					break;
 				case "closeSurpassOther"://
 					if (self.surpassOther) {
 						self.surpassOther.closeView();
 					}
-				break;
+					break;
 				case "openGoingSurpassOther"://
 					if(!self.goingSurpassOther){
 						self.goingSurpassOther = new GoingSurpassOther();
 						Laya.stage.addChild(self.goingSurpassOther);
 					}
 					self.goingSurpassOther.openView(message.data);
-				break;
+					break;
 				case "closeGoingSurpassOther"://
 					if (self.goingSurpassOther) {
 						self.goingSurpassOther.closeView();
 					}
-				break;
+					break;
 				case "openProvocationOther"://
 					if(!self.provocationOther){
 						self.provocationOther = new ProvocationOther();
 						Laya.stage.addChild(self.provocationOther);
 					}
 					self.provocationOther.openView(message.data);
-				break;
+					break;
 				case "closeProvocationOther"://
 					if (self.provocationOther) {
 						self.provocationOther.closeView();
 					}
-				break;
+					break;
 				
 			}
 		}.bind(this));
