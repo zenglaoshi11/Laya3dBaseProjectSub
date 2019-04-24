@@ -36,9 +36,9 @@ export default class RankItem extends Laya.Script  {
                 this.rankImg.visible = true;
             break;
         }
-
-        if (itemData.headImage && itemData.headImage != "" ) {
-            let avatarUrl = itemData.headImage.replace("/132", "/46");
+        this.avatarImg.skin = "rank/img_default_avatar.png"; //默认头像
+        if (itemData.avatarUrl && itemData.avatarUrl != "" ) {
+            let avatarUrl = itemData.avatarUrl.replace("/132", "/46");
             this.avatarImg.skin = avatarUrl;
         }
         this.nameLab.text = itemData.nickname ? itemData.nickname : "神秘玩家";

@@ -27,7 +27,7 @@ export class Rank extends ui.RankUI {
         let self = this;
         this.selfRankData = {
             nickname:UserData.nickName,
-            headImage:UserData.avatarUrl,
+            avatarUrl:UserData.avatarUrl,
         }
         FriendData.instance.getFriends(_type,(data)=>{
             this.rankList.scrollTo(0);
