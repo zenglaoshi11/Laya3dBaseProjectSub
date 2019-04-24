@@ -70,24 +70,36 @@ export default class FriendData {
                 case 2:
                 case 3:
                     list = data.concat();
-                break;
+                    for (let i = 0; i < list.length; i++) {
+                        list[i].rank = i + 1;
+                    }
+                    break;
                 default:
                 for(let i = 0; i < data.length; i++){
                     if(data[i].avatarUrl == UserData.avatarUrl){
                         if(i > 0 && i < data.length - 1){
                             list.push(data[i-1]);
+                            list[0].rank = i;
                             list.push(data[i]);
+                            list[1].rank = i + 1;
                             list.push(data[i+1]);
+                            list[2].rank = i + 2;
                         }else if(i == 0 ){
                             if(i!= data.length-1){
                                 list.push(data[i]);
+                                list[0].rank = i + 1;
                                 list.push(data[i+1]);
+                                list[1].rank = i + 2;
                                 list.push(data[i+2]);
+                                list[2].rank = i + 3;
                             }
                         }else if(i == data.length - 1){
                             list.push(data[i-2]);
+                            list[0].rank = i - 1;
                             list.push(data[i-1]);
+                            list[1].rank = i;
                             list.push(data[i]);
+                            list[2].rank = i + 1;
                         }
                         break;
                     }

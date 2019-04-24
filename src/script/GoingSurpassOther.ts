@@ -20,13 +20,26 @@ export default class GoingSurpassOther extends ui.GoingSurpassOtherUI {
                     break;
                 }
             }
-            let length = Math.min(index + 3,data.length);
-            let j = 0;
-            for (; index < length; index++) {
+            if(index == 0){
+                this.best.visible = true;
+                this.beyondImg.visible = false;
+                this.head0.visible = false;
+                this.head1.visible = false;
+                this.head2.visible = false;
+            }else{
+                this.best.visible = false;
+                this.beyondImg.visible = true;
+            }
+            let j = 3;
+            for (let i = index - 1; i >= 0; i--) {
+                j--;
+                if(j<0){
+                    break;
+                }
                 this["head" + j].skin = data[index].avatarUrl;
                 this["head" + j].visible = true;
-                j++;
             }
+
         });
     }
 

@@ -19,13 +19,18 @@ export default class GameoverItem extends Laya.Script {
 
     updateItem(itemData,_type:number){
         (this.owner as Laya.View).visible = true;
-        this.rankLab.text = itemData.index;
+        this.rankLab.text = itemData.rank;
         if (itemData.avatarUrl && itemData.avatarUrl != "" ) {
             this.avatarImg.skin = itemData.avatarUrl;
         }
+
+        console.log("itemData:",itemData);
+
         this.nameLab.text = itemData.nickname ? itemData.nickname : "神秘玩家";
 
-        this.scoreLab.text = itemData.score;
+        console.log("itemData.score:",itemData.score)
+        
+        this.scoreLab.text = itemData.score||0;
         switch (_type) {
             case SORTTYPE.LEVEL:	
                 this.scoreLab.text = itemData.score + "关"
