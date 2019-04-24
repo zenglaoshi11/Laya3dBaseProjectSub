@@ -1,2 +1,9 @@
 .laya
 bin/h5
+bin/fileconfig.json
+bin/index.js
+bin/js/bundle.js
+bin/res/atlas/.rec
+bin/res/atlas/rank.atlas
+bin/res/atlas/rank.png
+src/ui/layaMaxUI.ts

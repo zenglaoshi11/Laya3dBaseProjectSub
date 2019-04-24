@@ -128,9 +128,6 @@ export default class FriendData {
     }
 
     public needRefresh(pre:number):boolean{
-        console.log(pre)
-        console.log(Laya.Browser.now() - pre)
-        console.log(this.refreshTime)
         return Laya.Browser.now() - pre > this.refreshTime;
     }
 }
