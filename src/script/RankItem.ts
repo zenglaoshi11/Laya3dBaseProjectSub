@@ -32,7 +32,7 @@ export default class RankItem extends Laya.Script  {
             case 2:
             case 3:
                 this.rankLab.text = "";
-                this.rankImg.skin = "rank/"+ itemData.index +".png";
+                this.rankImg.skin = "rank/img_rank"+ itemData.index +".png";
                 this.rankImg.visible = true;
             break;
         }
