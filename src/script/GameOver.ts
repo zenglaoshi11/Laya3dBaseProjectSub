@@ -15,6 +15,7 @@ export default class GameOver extends ui.GameOverUI {
     }
     
     public openView(_type?: number): void {
+        this.visible = true;
         this._items.forEach(element => {
             (element.getComponent(GameoverItem) as GameoverItem).clean();
         });
@@ -28,7 +29,6 @@ export default class GameOver extends ui.GameOverUI {
     }
 
     public closeView(): void {
-        this.active = false;
         this.visible = false;
     }
 }

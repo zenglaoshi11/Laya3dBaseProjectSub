@@ -60,6 +60,5 @@ export class Rank extends ui.RankUI {
 
     public closeView(): void {
         this.visible = false;
-        this.active = false;
     }
 }
