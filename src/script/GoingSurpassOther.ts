@@ -45,5 +45,6 @@ export default class GoingSurpassOther extends ui.GoingSurpassOtherUI {
 
     public closeView(): void {
         this.active = false;
+        this.visible  = false;
     }
 }
