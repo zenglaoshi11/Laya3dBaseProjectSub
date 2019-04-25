@@ -29,5 +29,6 @@ export default class GameOver extends ui.GameOverUI {
 
     public closeView(): void {
         this.active = false;
+        this.visible = false;
     }
 }

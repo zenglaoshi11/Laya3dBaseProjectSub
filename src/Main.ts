@@ -64,6 +64,7 @@ class Main {
 				Laya.loader.load("res/atlas/rank.atlas",Laya.Handler.create(this,function(){
 				}));
 			}
+			console.log("messageType:",message['type']);
 			switch (message['type']) {
 				case "initFrendData":
 					FriendData.instance.getFriends();
