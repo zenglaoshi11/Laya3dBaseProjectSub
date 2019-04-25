@@ -35,7 +35,7 @@ export module ui {
 		public nextHead:Laya.Image;
 		public provocationOtherBg:Laya.Image;
 		public provocationOtherText:laya.display.Text;
-        public static  uiView:any ={"type":"Scene","props":{"width":66,"height":66},"compId":2,"child":[{"type":"Image","props":{"width":66,"var":"nextHead","skin":"rank/img_default_avatar.png","name":"nextHead","height":66},"compId":3},{"type":"Image","props":{"y":2,"x":85,"width":440,"var":"provocationOtherBg","skin":"rank/bg_fight.png","sizeGrid":"0,15,0,31","name":"bg","height":62},"compId":4,"child":[{"type":"Text","props":{"y":15,"x":22,"var":"provocationOtherText","valign":"middle","text":"让大家见识一下你的极限！","name":"provocationOtherText","fontSize":26,"color":"#e6e6e6","runtime":"laya.display.Text"},"compId":5}]}],"loadList":["rank/img_default_avatar.png","rank/bg_fight.png"],"loadList3D":[]};
+        public static  uiView:any ={"type":"Scene","props":{"width":750,"height":66},"compId":2,"child":[{"type":"Image","props":{"x":56,"width":66,"var":"nextHead","skin":"rank/img_default_avatar.png","name":"nextHead","height":66},"compId":3},{"type":"Image","props":{"y":2,"x":141,"width":440,"var":"provocationOtherBg","skin":"rank/bg_fight.png","sizeGrid":"0,15,0,31","name":"bg","height":62},"compId":4,"child":[{"type":"Text","props":{"y":15,"x":22,"var":"provocationOtherText","valign":"middle","text":"让大家见识一下你的极限！","name":"provocationOtherText","fontSize":26,"color":"#e6e6e6","runtime":"laya.display.Text"},"compId":5}]}],"loadList":["rank/img_default_avatar.png","rank/bg_fight.png"],"loadList3D":[]};
         constructor(){ super()}
         createChildren():void {
             super.createChildren();
