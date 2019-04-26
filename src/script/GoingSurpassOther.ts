@@ -25,6 +25,7 @@ export default class GoingSurpassOther extends ui.GoingSurpassOtherUI {
                 this.head0.visible = false;
                 this.head1.visible = false;
                 this.head2.visible = false;
+                return;
             }else{
                 this.best.visible = false;
                 this.beyondImg.visible = true;
