@@ -7,11 +7,10 @@ export default class GoingSurpassOther extends ui.GoingSurpassOtherUI {
     constructor() { super(); }
     
     public openView(_type?: number): void {
-        this.active = true;
+        this.visible = true;
         for (let index = 0; index < 2; index++) {
             this["head" + index].visible = false;
         }
-
         FriendData.instance.getFriends(_type,(data)=>{
             let index = 0;
             for(let i = 0; i < data.length; i++){
@@ -26,6 +25,7 @@ export default class GoingSurpassOther extends ui.GoingSurpassOtherUI {
                 this.head0.visible = false;
                 this.head1.visible = false;
                 this.head2.visible = false;
+                return;
             }else{
                 this.best.visible = false;
                 this.beyondImg.visible = true;
@@ -44,7 +44,6 @@ export default class GoingSurpassOther extends ui.GoingSurpassOtherUI {
     }
 
     public closeView(): void {
-        this.active = false;
         this.visible  = false;
     }
 }
