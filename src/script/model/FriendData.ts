@@ -61,53 +61,53 @@ export default class FriendData {
             }
         }
     }
-
+    //结束的时候，不去拉微信的数据，有可能上传的数据和拉下来的不一样，直接使用缓存的
     getGameOverData(_type,callback){
-        this.getFriends(_type,(data)=>{
-            let list = [];
-            switch(data.length){
-                case 1:
-                case 2:
-                case 3:
-                    list = data.concat();
-                    for (let i = 0; i < list.length; i++) {
-                        list[i].rank = i + 1;
-                    }
-                    break;
-                default:
-                for(let i = 0; i < data.length; i++){
-                    if(data[i].avatarUrl == UserData.avatarUrl){
-                        if(i > 0 && i < data.length - 1){
-                            list.push(data[i-1]);
-                            list[0].rank = i;
-                            list.push(data[i]);
-                            list[1].rank = i + 1;
-                            list.push(data[i+1]);
-                            list[2].rank = i + 2;
-                        }else if(i == 0 ){
-                            if(i!= data.length-1){
-                                list.push(data[i]);
-                                list[0].rank = i + 1;
-                                list.push(data[i+1]);
-                                list[1].rank = i + 2;
-                                list.push(data[i+2]);
-                                list[2].rank = i + 3;
-                            }
-                        }else if(i == data.length - 1){
-                            list.push(data[i-2]);
-                            list[0].rank = i - 1;
-                            list.push(data[i-1]);
-                            list[1].rank = i;
-                            list.push(data[i]);
-                            list[2].rank = i + 1;
-                        }
-                        break;
-                    }
+        _type == SORTTYPE.LEVEL ? this.sortLevel() : this.sortScore()
+        let data = this.friends;
+        let list = [];
+        switch(data.length){
+            case 1:
+            case 2:
+            case 3:
+                list = data.concat();
+                for (let i = 0; i < list.length; i++) {
+                    list[i].rank = i + 1;
                 }
                 break;
+            default:
+            for(let i = 0; i < data.length; i++){
+                if(data[i].avatarUrl == UserData.avatarUrl){
+                    if(i > 0 && i < data.length - 1){
+                        list.push(data[i-1]);
+                        list[0].rank = i;
+                        list.push(data[i]);
+                        list[1].rank = i + 1;
+                        list.push(data[i+1]);
+                        list[2].rank = i + 2;
+                    }else if(i == 0 ){
+                        if(i!= data.length-1){
+                            list.push(data[i]);
+                            list[0].rank = i + 1;
+                            list.push(data[i+1]);
+                            list[1].rank = i + 2;
+                            list.push(data[i+2]);
+                            list[2].rank = i + 3;
+                        }
+                    }else if(i == data.length - 1){
+                        list.push(data[i-2]);
+                        list[0].rank = i - 1;
+                        list.push(data[i-1]);
+                        list[1].rank = i;
+                        list.push(data[i]);
+                        list[2].rank = i + 1;
+                    }
+                    break;
+                }
             }
-            callback(list);
-        });
+            break;
+        }
+        callback(list);
     }
 
     public updateSelfScore(score:number):void{
