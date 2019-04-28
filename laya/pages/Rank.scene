@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":12,
-    "selecteID":6,
+    "selectedBox":13,
+    "selecteID":31,
     "searchKey":"Scene",
     "props":{"width":561,"top":0,"sceneColor":"#000000","right":0,"left":0,"height":828,"bottom":0},
     "nodeParent":-1,
@@ -136,13 +136,14 @@
             "props":{"y":739,"x":0,"width":560,"visible":false,"var":"selfRank","skin":"rank/bg_myItem.png","sizeGrid":"8,10,9,10","height":82},
             "nodeParent":2,
             "label":"selfRank",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":13,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,rankImg",
                     "props":{"y":5,"x":9,"width":61,"skin":"rank/img_rank1.png","name":"rankImg","height":73},
@@ -157,6 +158,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "searchKey":"Label,rankLab",
                     "props":{"y":41,"x":38,"width":76,"valign":"middle","text":"1","strokeColor":"#2c11f1","overflow":"visible","name":"rankLab","height":40,"fontSize":32,"color":"#8d430d","bold":true,"anchorY":0.5,"anchorX":0.5,"align":"center"},
@@ -170,6 +172,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,avatarImg",
                     "props":{"y":7,"x":80,"width":68,"skin":"rank/img_default_avatar.png","name":"avatarImg","height":68},
@@ -184,6 +187,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "searchKey":"Label,nameLab",
                     "props":{"y":29,"x":164,"width":222,"overflow":"hidden","name":"nameLab","height":24,"fontSize":24,"color":"#010101"},
@@ -197,9 +201,10 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "searchKey":"Label,scoreLab",
-                    "props":{"y":41,"x":429,"width":109,"valign":"middle","text":"1","overflow":"visible","name":"scoreLab","height":40,"fontSize":36,"color":"#000000","bold":true,"anchorY":0.5,"anchorX":0,"align":"right"},
+                    "props":{"y":41,"x":429,"width":109,"valign":"middle","text":"1","overflow":"visible","name":"scoreLab","height":40,"fontSize":28,"color":"#000000","bold":true,"anchorY":0.5,"anchorX":0,"align":"right"},
                     "nodeParent":13,
                     "label":"scoreLab",
                     "isDirectory":false,
